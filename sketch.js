@@ -15,8 +15,6 @@ var gameOver, restart;
 
 
 function preload(){
- // trex_running =   loadAnimation("trex1.png","trex3.png","trex4.png");
-  //trex_collided = loadAnimation("trex_collided.png");
   girl = loadAnimation("Girl running.gif")
   
   groundImage = loadImage("ground2.png");
@@ -104,11 +102,9 @@ function draw() {
     girl.velocityY = 0;
     obstaclesGroup.setVelocityXEach(0);
     cloudsGroup.setVelocityXEach(0);
-    
-    //change the trex animation
+  
    girl.changeAnimation("collided",girl_collided);
-    
-    //set lifetime of the game objects so that they are never destroyed
+  
     obstaclesGroup.setLifetimeEach(-1);
     cloudsGroup.setLifetimeEach(-1);
     
@@ -129,15 +125,12 @@ function spawnClouds() {
     cloud.addImage(cloudImage);
     cloud.scale = 1;
     cloud.velocityX = -3;
-    
-     //assign lifetime to the variable
+ 
     cloud.lifetime = 200;
     
-    //adjust the depth
     cloud.depth = girl.depth;
     girl.depth = girl.depth + 1;
     
-    //add each cloud to the group
     cloudsGroup.add(cloud);
   }
   
@@ -166,8 +159,7 @@ function spawnObstacles() {
               break;
       default: break;
     }
-    
-    //assign scale and lifetime to the obstacle           
+           
     obstacle.scale = 0.5;
     obstacle.lifetime = 300;
     //add each obstacle to the group
